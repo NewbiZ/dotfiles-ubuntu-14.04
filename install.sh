@@ -20,6 +20,10 @@ mkdir -p "${DOTFILES_ROOT}"
 cd "${DOTFILES_ROOT}"
 git clone http://github.com/NewbiZ/${DOTFILES_NAME}
 
+echo "+ Configuring background"
+rm -rf "${HOME}/Pictures/wallpaper.jpg" && ln -s "${DOTFILES_PATH}/Pictures/wallpaper.jpg" "${HOME}/Pictures/wallpaper.jpg"
+gsettings set org.gnome.desktop.background picture-uri "file:///${HOME}/Pictures/wallpaper.jpg"
+
 echo "+ Installing bash configuration"
 rm -rf "${HOME}/.bashrc" && ln -s "${DOTFILES_PATH}/.bashrc" "${HOME}/.bashrc"
 
